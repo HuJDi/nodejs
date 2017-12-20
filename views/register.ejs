@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head> 
+		<title>注册</title>
+		<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+		<script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+    		<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+	</head>
+	<body> 
+	  	<%- include('./header',{title:"注册页面",isShow:false}) %>
+		    	<div class="container">
+	    			<div>
+	    		  		<label>用户名</label> 
+	    				<input type="text"  name="username" class="form-control" id="InputName" placeholder="用户只能使用字母下划线开头, 长度在6-15位">
+	    			  	<p style="font:12px/28px '';color:red;"></p>
+	    			</div>
+	    			<div>
+	    			 	<label>邮箱</label>
+	    			  	<input type="text" class="form-control"  name="email" id="inputEmail" placeholder="请输入邮箱">
+	    			  	<p style="font:12px/28px '';color:red;"></p>
+	    			</div>
+	    			<div>
+	    			   	<label>密码</label>
+	    			  	<input type="password"  name="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+	    			</div>
+	    			<button class="btn btn-default"  style="float:left;margin-top:20px;">注册</button>
+	    			<a href="/login" style="float:right;margin-top:20px;">已有账号？点击登录</a>
+			</div>
+		<script type="text/javascript" src="/js/js-register.js"></script>
+  	</body>
+</html>

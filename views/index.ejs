@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>图书管理系统</title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+	<script type="text/javascript" src="/bootstrap/js/jquery-1.11.0.js"></script>
+	<script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+	<style>
+		.bookNone{display: none;}
+		.aftersave {font:16px/40px '';}
+		.aftersave p{display: inline-block;font-weight: 700;}
+		.aftersave span{display: inline-block;}
+		.insave label{font:700 16px/32px "";}
+		.insave span{font:16px/32px "";}
+		.none{font:28px/200px "";text-align: center;}
+		.upBook{margin-top:50px;}
+		.upBook label{font:700 14px/32px "";}
+		.searchbook {font:16px/40px '';}
+		.searchbook p{display: inline-block;font-weight: 700;}
+		.searchbook span{display: inline-block;}
+	</style>
+  </head>
+  <body>
+	<%- include('./header',{title:"图书管理页面",isShow:true,headname:name}) %>
+	<div class="container">
+		<div class="col-md-3 left" style="height:700px;background:#f9f9f9;padding-top:30px">
+				<ul class="list-group" style="font:16px/30px '';">
+					<li class="list-group-item">员工守则</li>
+					<li class="list-group-item">员工信息</li>
+					<li class="list-group-item">图书管理</li>
+					<li class="list-group-item">公告</li>
+				</ul>
+		</div>
+		<div class="col-md-9 right"  style="height:700px;padding-left:30px;background:">
+			<div style="background:#f9f9f9;width:800px;height:700px;padding:20px 80px 0;" class="bookBox">
+				<!-- 员工守则 -->
+				<div class="">
+					<p style="font:700 24px/160px '';text-align: center;">管理员守则</p>
+					<div style="font:16px/34px '';">
+						<p>一、严格执行图书馆、阅览室的规章制度，保持馆内的清洁卫生和良好秩序。</p>
+						<p>二、掌握新书出版信息，添购书籍，充实书库。</p>
+						<p>三、新书买到后，及时进行分类编目，尽快介绍出借。</p>
+						<p>四、做好师生借书工作，管好学生阅览室和教师资料室。</p>
+						<p>五、及时做好书报刊订阅工作，月底、年底做好收、装、订保管工作。</p>
+						<p>六、经常做好书籍、资料，及时送各相关教研组。</p>
+						<p>七、进行爱护书籍的宣传教育，做好图书的防潮、防蛀的工作和图书修补工作。</p>
+						<p>八、认真落实防火、防盗措施。</p>
+					</div>
+					
+				</div>
+				<!-- 员工信息 -->
+				<div class="bookNone" style="padding-top:50px;">
+					<div class="aftersave">
+						<div>
+							<p>姓名：</p>
+							<span class="after-name"></span>
+						</div>
+						<div>
+							<p>性别：</p>
+							<span class="after-sex"></span>
+						</div>
+						<div>
+							<p>年龄：</p>
+							<span class="after-age"></span>
+						</div>
+						<div>
+							<p>联系方式：</p>
+							<span class="after-phone"></span>
+						</div>
+						<div>
+							<p>入职日期：</p>
+							<span class="after-time"></span>
+						</div>
+						<button class="btn btn-default alter"  style="margin-top:20px;">修改</button>
+					</div>
+				    	<div class="insave bookNone">
+			    			<div class="outName">
+			    		  		<label>姓名：</label> 
+			    				<span class="staffName">111111</span>
+			    			</div>
+			    			<div>
+			    			 	<label>性别：</label>
+			    			  	<input type="text" class="form-control sex">
+			    			</div>
+			    			<div>
+			    			   	<label>年龄：</label>
+			    			  	<input type="text" class="form-control age">
+			    			</div>
+			    			<div>
+			    			   	<label>联系方式：</label>
+			    			  	<input type="text" class="form-control phone" >
+			    			</div>
+			    			<div>
+			    			   	<label>入职日期：</label>
+			    			  	<input type="text" class="form-control staffTime">
+			    			</div>
+			    			<button class="btn btn-default save"  style="margin-top:20px;">保存</button>
+					</div>
+				</div>
+				<!-- 图书管理 -->
+				<div class="book bookNone">
+					<div class="" style="overflow: hidden;">
+						<p style="float:left;"><button class="btn btn-default bookBtn"  style="margin:40px 0 40px;">点击上传书籍</button> </p>
+
+						<div class="bookNone  searchbox">
+							<div class="input-group " style="float:right;width:300px;margin:40px 0 40px;">
+							      <input type="text" class="form-control" placeholder="输入书籍名称">
+							      <span class="input-group-btn">
+							        	<button class="btn btn-default search" type="button">搜索</button>
+							      </span>
+							</div>
+						</div>
+						
+					</div>
+					
+					<div class="searchbook bookNone">
+						<div>
+							<p>书籍名称：</p>
+							<span class="searchName"></span>
+						</div>
+						<div>
+							<p>作者：</p>
+							<span class="searchAuther"></span>
+						</div>
+						<div>
+							<p>上传日期：</p>
+							<span class="searchTime"></span>
+						</div>
+						<div>
+							<p>上传人：</p>
+							<span class="searchPeople"></span>
+						</div>
+						<button class="btn btn-default sure"  style="margin-top:20px;">确定</button>
+					</div>
+
+
+					<p class="none">暂无书籍</p>
+					<div class="bookNone tablebox">
+					<div  style="height:150px">
+						<table class="table table-bordered">
+						      <thead>
+						        <tr>
+						          <th>书籍名称</th>
+						          <th>作者</th>
+						          <th>上传日期</th>
+						          <th>上传人</th>
+						          <th>删除</th>
+						        </tr>
+						      </thead>
+						      <tbody>
+						      </tbody>
+						    </table>
+					</div>
+						
+
+						    <nav aria-label="Page navigation" style="text-align:center;">
+						      <ul class="pagination" >
+						      </ul>
+						    </nav>
+					</div>
+					
+					 <div class="upBook bookNone">
+					 		<div>
+					 		 	<label>书籍名称：</label>
+					 		  	<input type="text" class="form-control">
+					 		</div>
+					 		<div>
+					 		   	<label>作者：</label>
+					 		  	<input type="text" class="form-control">
+					 		</div>
+					 		<div>
+					 		   	<label>上传日期：</label>
+					 		  	<input type="text" class="form-control" >
+					 		</div>
+					 		<div>
+					 		   	<label>上传人：</label>
+					 		  	<input type="text" class="form-control">
+					 		</div>
+					 		<button class="btn btn-default upbtn"  style="margin-top:20px;">上传</button>
+					 </div>
+
+				</div>
+				<!-- 公告 -->
+				<div class="bookNone">
+					<p style="font:700 24px/120px '';text-align: center;">公告</p>
+					<div style="font:16px/34px '';">
+						<p>一、音像电子教材应按照国家颁布的《非书资料著录规则》或上级电教部门的统一要求，做好编目和上架。</p>
+						<p>二、有些内容过时、破损或音像质量下降影响继续使用效果的资料应及时清理，并予以注销。</p>
+						<p>三、编目时做到统一、规范、有序，则查找比较方便。</p>
+						<p>四、对每一位老师借用的音像电子资料都必须详细记录，包括出借日期、资料类别、数量等。应要求教师在资料用毕后及时归还。对归还的资料应逐一检查，并注销相应的出借记录。对由于借用者主观原因导致破损或丢失的资料，应要求借用者按规定赔偿。为便于查询馆藏资料情况和出借情况，把馆藏资料目录和出借情况及时输入到计算机服务器中。</p>
+						<p>五、做好音像电子教材的日常维护工作。对资料的维护要针对不同媒体类型采用不同方法。录音、录像资料要注意防磁、防晒、防潮。对于VCD、CD－ROM之类的资料要注意防尘和防划伤，要定期清洁。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/js/js-index.js"></script>
+  </body>
+</html>
